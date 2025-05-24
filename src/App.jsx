@@ -113,7 +113,7 @@ function App() {
   return (
     <div style={{ padding: '1rem', textAlign: 'center' }}>
       <h1 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>
-        ChessReps - Vite Edition
+        Modern Chess Openings
       </h1>
 
       <div style={{ marginBottom: '1rem' }}>
