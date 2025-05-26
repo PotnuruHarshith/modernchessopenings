@@ -623,7 +623,7 @@
         {
           "name": "Line 1",
           "moves": [
-            { "san": "e4", "quality": "best", "sound": "normal" },
+            { "san": "e4", "quality": "book", "sound": "normal" },
             { "san": "e5", "quality": "book", "sound": "normal" },
             { "san": "f4", "quality": "book", "sound": "normal" },
             { "san": "d5", "quality": "book", "sound": "normal" },
