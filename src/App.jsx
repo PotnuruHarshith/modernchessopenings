@@ -1,4 +1,3 @@
-// App.jsx
 import { useState, useEffect, useRef } from 'react';
 import { Chess } from 'chess.js';
 import { Chessboard } from 'react-chessboard';
@@ -93,6 +92,19 @@ function App() {
     }
   };
 
+  const previousMove = () => {
+    if (currentMoveIndex > 0) {
+      const newGame = new Chess();
+      const newMoves = moves.slice(0, currentMoveIndex - 1);
+      newMoves.forEach((m) => newGame.move(m.san, { sloppy: true }));
+      setGame(newGame);
+      setFen(newGame.fen());
+      setCurrentMoveIndex(currentMoveIndex - 1);
+      setLastMoveTo(newMoves[newMoves.length - 1]?.to || null);
+      setLastMoveQuality(newMoves[newMoves.length - 1]?.quality || null);
+    }
+  };
+
   const getSquareStyle = (square) => {
     if (!square || !boardRef.current) return {};
 
@@ -144,6 +156,9 @@ function App() {
         </select>
       </div>
 
+      <button onClick={previousMove} disabled={currentMoveIndex <= 0}>
+        Previous Move
+      </button>
       <button onClick={nextMove} disabled={currentMoveIndex >= moves.length}>
         Next Move
       </button>
